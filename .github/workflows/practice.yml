@@ -1,6 +1,7 @@
 name: multiple works
 on:
-  workflow_dispatch:
+  push:
+     branches: [main]
 jobs:
    code:
       runs-on: ubuntu-latest
@@ -13,13 +14,13 @@ jobs:
        steps:
           - name: build the code into image
             run: echo "build images"
-    test:
+   test:
         needs: [code, build]
         runs-on: ubuntu-latest
         steps:
            - name: test the application
              run: echo "now test the application"
-    deploy:
+   deploy:
          needs: [code, build, test]
          runs-on: ubuntu-latest
          steps:
