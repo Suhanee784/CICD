@@ -1,0 +1,27 @@
+name: multiple works
+on:
+  workflow-dispatch:
+jobs:
+   code:
+      runs-on: ubuntu-latest
+      steps:
+         - name: put all code
+           run: echo "code clone from github"
+   build:
+       needs: [code]
+       runs-on: ubuntu-latest
+       steps:
+          - name: build the code into image
+            run: echo "build images"
+    test:
+        needs: [code, build]
+        runs-on: ubuntu-latest
+        steps:
+           - name: test the application
+             run: echo "now test the application"
+    deploy:
+         needs: [code, build, test]
+         runs-on: ubuntu-latest
+         steps:
+            - name: deply application
+              run: echo "now deply the appicatio to the user
