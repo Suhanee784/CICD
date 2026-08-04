@@ -1,0 +1,13 @@
+name: Hello workflow
+on:
+  push:
+     branches: [main]
+jobs:
+   greet:
+      runs-on: ubuntu-latest
+      steps:
+        - name: say hello
+          run: echo "hello suhanee"
+
+        - name: say hello to user
+          run: echo "hello $USER"
