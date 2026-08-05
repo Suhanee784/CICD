@@ -14,6 +14,7 @@ on:
           - staging
 jobs:
    greet:
+      if: inputs.envirnoments == 'dev'
       runs-on: ubuntu-latest
       steps:
         - name: say hello
