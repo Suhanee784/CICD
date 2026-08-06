@@ -12,7 +12,7 @@ jobs:
       steps:
          - name: checkout code
            run:  echo "hello suhanee"
-         - name: check the python version ${{ matrix.python-version}}
-           run:  pthon-version ${{ matrix.python-version}}
+         - name: echo "check the python version ${{ matrix.python-version }}"
+           run:  echo "pthon-version ${{ matrix.python-version }}"
          - name: code deploy
            run:  echo "code deployed successfully"
